@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Sparklines */
+.sparkline {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.25rem;
+    background-color: transparent;
+}
