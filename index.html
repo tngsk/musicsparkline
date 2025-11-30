@@ -1,12 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Music Sparkline</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Music Sparkline</title>
+
+        <!-- Preload VexFlow fonts for better performance -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+        <link
+            rel="preload"
+            href="https://cdn.jsdelivr.net/npm/@vexflow-fonts/bravura/bravura.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+
+        <!-- VexFlow v5 font definitions -->
+        <style>
+            @font-face {
+                font-family: "Bravura";
+                src: url(https://cdn.jsdelivr.net/npm/@vexflow-fonts/bravura/bravura.woff2)
+                    format("woff2");
+                font-display: swap;
+            }
+            @font-face {
+                font-family: "Academico";
+                src: url(https://cdn.jsdelivr.net/npm/@vexflow-fonts/academico/academico.woff2)
+                    format("woff2");
+                font-display: swap;
+            }
+
+            /* Hidden element to trigger font loading */
+            .vf-font-preload {
+                font-family: "Bravura", Arial, sans-serif;
+                position: absolute;
+                visibility: hidden;
+                width: 0;
+                height: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Hidden element to trigger font loading -->
+        <div class="vf-font-preload">♪</div>
+
+        <div id="app"></div>
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
