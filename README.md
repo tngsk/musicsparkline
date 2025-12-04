@@ -15,14 +15,6 @@ Install the required packages in your Vue project:
 npm install tone markdown-it
 npm install -D @tailwindcss/typography
 ```
-
-### 2. File Placement
-Copy the contents of `src` into your project's `src` directory.
--   `src/lib/SparklineUtils.js`: SVG generation logic.
--   `src/lib/MusicTheory.js`: Music theory definitions (optional, but useful).
--   `src/lib/AudioManager.js` & `instruments/`: Audio playback system.
--   `src/composables/useMusicMarkdown.js`: Logic to load Markdown and replace tags with SVGs.
-
 ### 3. Configuration
 **Tailwind CSS**:
 Ensure `@tailwindcss/typography` is added to your Tailwind config or CSS file.
