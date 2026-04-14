@@ -81,6 +81,40 @@ import SparkPlay from "./components/SparkPlay.vue";
                 </p>
                 <SparkScore notes="F#4/q, Bb4/q, C#5/q" />
             </div>
+
+            <div
+                style="
+                    margin-bottom: 15px;
+                    padding: 12px;
+                    background-color: white;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 6px;
+                "
+            >
+                <p style="font-size: 14px; color: #6b7280; margin-bottom: 8px">
+                    Chords & Bass:
+                </p>
+                <SparkScore notes="C4+E4+G4/q, C4+E4+G4/h" showTimeSignature="true" />
+                <br />
+                <SparkScore clef="bass" notes="C3/q, G3/q, C4/h" />
+            </div>
+
+            <div
+                style="
+                    margin-bottom: 15px;
+                    padding: 12px;
+                    background-color: white;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 6px;
+                "
+            >
+                <p style="font-size: 14px; color: #6b7280; margin-bottom: 8px">
+                    Inline Typography:
+                </p>
+                <p style="font-size: 16px; line-height: 2;">
+                    A C Major triad <SparkScore notes="C4+E4+G4/q" /> can be embedded within text easily.
+                </p>
+            </div>
         </div>
 
         <div
