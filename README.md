@@ -10,20 +10,24 @@ This directory contains the core files for the "Music Sparkline" system, which a
 ## Setup Instructions
 
 ### 1. Dependencies
-Install the required packages in your Vue project:
+Install the required packages in your project:
 ```bash
-npm install tone markdown-it
-npm install -D @tailwindcss/typography
+npm install vexflow tone
 ```
-### 3. Configuration
-**Tailwind CSS**:
-Ensure `@tailwindcss/typography` is added to your Tailwind config or CSS file.
-```css
-/* src/style.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+### 2. Configuration & Registration
+Import and register the custom elements in your main JavaScript file:
+
+```javascript
+import { SparkScore } from './components/SparkScore.js'
+import { SparkPlay } from './components/SparkPlay.js'
+
+customElements.define('spark-score', SparkScore)
+customElements.define('spark-play', SparkPlay)
+```
+
+Add the following basic CSS for styling the components:
+```css
 /* Add Sparkline styles */
 .sparkline {
     display: inline-block;
@@ -31,47 +35,20 @@ Ensure `@tailwindcss/typography` is added to your Tailwind config or CSS file.
     margin: 0 4px;
     background-color: transparent;
 }
-.spark-keys {
-    border-radius: 2px;
-}
 ```
 
-### 4. Usage
-**In Markdown Files (`src/content/*.md`):**
-You can use the Web Components directly in your Markdown!
+### 3. Usage
+You can use the Web Components directly in your HTML or Markdown!
 
-```markdown
-<script setup>
-import SparkKeys from '../components/SparkKeys.vue'
-</script>
-
+```html
 # C Major Triad
-This is a C Major triad: <SparkKeys notes="C4,E4,G4" />
+This is a C Major triad: <spark-score notes="C4+E4+G4/q"></spark-score>
 
-Here is a score: <spark-score notes="C4,E4,G4"></spark-score>
+Play the chord: <spark-play notes="C4,E4,G4">Play C Major</spark-play>
 ```
 
-**In Vue Components:**
-Use `useMusicMarkdown` to load the Markdown and handle clicks for audio.
+## Example Preview
 
-```vue
-<script setup>
-import { useMusicMarkdown } from './composables/useMusicMarkdown'
-import { audioManager } from './lib/AudioManager'
+Below is a preview of what the rendered components look like:
 
-const { content } = useMusicMarkdown('your-topic-id')
-
-const handleClick = (e) => {
-  const target = e.target.closest('[data-play]')
-  if (target) {
-    const notes = target.dataset.play.split(',')
-    audioManager.resume()
-    audioManager.playChord(notes)
-  }
-}
-</script>
-
-<template>
-  <div class="prose" v-html="content" @click="handleClick"></div>
-</template>
-```
+![Preview Image](/home/jules/verification/screenshots/verification.png)
