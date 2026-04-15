@@ -38,18 +38,17 @@ Ensure `@tailwindcss/typography` is added to your Tailwind config or CSS file.
 
 ### 4. Usage
 **In Markdown Files (`src/content/*.md`):**
-You can import and use Vue components directly in your Markdown!
+You can use the Web Components directly in your Markdown!
 
 ```markdown
 <script setup>
 import SparkKeys from '../components/SparkKeys.vue'
-import SparkScore from '../components/SparkScore.vue'
 </script>
 
 # C Major Triad
 This is a C Major triad: <SparkKeys notes="C4,E4,G4" />
 
-Here is a score: <SparkScore notes="C4,E4,G4" />
+Here is a score: <spark-score notes="C4,E4,G4"></spark-score>
 ```
 
 **In Vue Components:**
