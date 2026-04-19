@@ -1,5 +1,7 @@
 import * as VexFlow from "vexflow";
 
+const PITCH_REGEX = /^([A-Ga-g])([#b]?)(\d+)$/i;
+
 export class SparkScore extends HTMLElement {
     static get observedAttributes() {
         return ['notes', 'time-signature', 'clef', 'show-time-signature'];
@@ -122,7 +124,7 @@ export class SparkScore extends HTMLElement {
                 const accidentals = [];
 
                 pitches.forEach((pitchStr, index) => {
-                    const pitchMatch = pitchStr.match(/^([A-Ga-g])([#b]?)(\d+)$/i);
+                    const pitchMatch = pitchStr.match(PITCH_REGEX);
                     if (pitchMatch) {
                         const [, note, accidental, octave] = pitchMatch;
                         keys.push(`${note.toLowerCase()}${accidental}/${octave}`);
