@@ -37,15 +37,6 @@ export class SparkPlay extends HTMLElement {
         // Since we are using Light DOM and want to support slots, we need to be careful
         // not to destroy child text nodes managed by Vue.
         // If the button is already appended and has children, we shouldn't reparent elements constantly.
-        if (!this.contains(this.button)) {
-             // Create a wrapper or just prepend/append button based on needs.
-             // Actually, if we just want a button inside the component,
-             // it's cleaner to let the component *be* the container and
-             // style it. But the Vue component *rendered* a button.
-             // To not break Vue's text node tracking, let's just create a Shadow Root for the button.
-             // Wait, the prompt requested Light DOM for simple implementation.
-             // If we must use Light DOM, let's just make `SparkPlay` itself styled like the button or wrap its contents.
-        }
 
         // Better approach for Light DOM: move children once.
         if (!this.contains(this.button)) {
