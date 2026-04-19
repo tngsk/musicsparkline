@@ -168,7 +168,11 @@ export class SparkScore extends HTMLElement {
                 });
             }
         } catch (error) {
-            this.container.innerHTML = `<span style="color: red; font-size: 14px; padding: 8px; border: 1px solid red;">Error: ${error.message}</span>`;
+            this.container.innerHTML = "";
+            const errorSpan = document.createElement("span");
+            errorSpan.style.cssText = "color: red; font-size: 14px; padding: 8px; border: 1px solid red;";
+            errorSpan.textContent = `Error: ${error.message}`;
+            this.container.appendChild(errorSpan);
         }
     }
 }
